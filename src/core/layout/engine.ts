@@ -1,5 +1,5 @@
 import dagre from 'dagre';
-import { WorkflowNode, WorkflowEdge } from '../types';
+import type { WorkflowNode, WorkflowEdge } from '../types';
 
 export const applyAutoLayout = (nodes: WorkflowNode[], edges: WorkflowEdge[], direction = 'TD'): { nodes: WorkflowNode[], edges: WorkflowEdge[] } => {
   const dagreGraph = new dagre.graphlib.Graph();

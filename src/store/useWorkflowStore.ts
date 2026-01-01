@@ -1,17 +1,17 @@
 import { create } from 'zustand';
 import {
-  Node,
-  Edge,
-  OnNodesChange,
-  OnEdgesChange,
-  OnConnect,
+  type Node,
+  type Edge,
+  type OnNodesChange,
+  type OnEdgesChange,
+  type OnConnect,
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
-  Connection,
+  type Connection,
 } from '@xyflow/react';
 import { temporal } from 'zundo';
-import { WorkflowNode, WorkflowEdge } from '../core/types';
+import type { WorkflowNode, WorkflowEdge } from '../core/types';
 import { parseMermaid } from '../core/mermaid/parser';
 import { generateMermaid } from '../core/mermaid/generator';
 import { applyAutoLayout } from '../core/layout/engine';

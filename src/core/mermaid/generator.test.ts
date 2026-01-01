@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { generateMermaid } from './generator';
-import { WorkflowNode, WorkflowEdge } from '../types';
+import type { WorkflowNode, WorkflowEdge } from '../types';
 
 describe('Mermaid Generator', () => {
   it('should generate basic graph', () => {
