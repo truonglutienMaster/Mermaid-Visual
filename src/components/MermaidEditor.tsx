@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useWorkflowStore } from '../store/useWorkflowStore';
 import { Button, Textarea } from './ui';
-import { ArrowLeftRight, Download, Upload } from 'lucide-react';
+import { Download, Upload } from 'lucide-react';
 
 const MermaidEditor: React.FC = () => {
   const { mermaidCode, setMermaidCode, importMermaid, syncToMermaid } = useWorkflowStore();
@@ -34,7 +34,7 @@ const MermaidEditor: React.FC = () => {
           <Upload className="w-4 h-4 mr-2" />
           Import
         </Button>
-        <Button onClick={handleExport} className="flex-1" variant="outline" title="Sync from Canvas">
+        <Button onClick={handleExport} className="flex-1" title="Sync from Canvas">
            <Download className="w-4 h-4 mr-2" />
            Export
         </Button>

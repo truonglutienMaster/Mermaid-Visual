@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import WorkflowCanvas from './components/WorkflowCanvas';
 import MermaidEditor from './components/MermaidEditor';
 import { useWorkflowStore } from './store/useWorkflowStore';

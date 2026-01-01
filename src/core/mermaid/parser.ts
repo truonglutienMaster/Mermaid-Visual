@@ -1,4 +1,4 @@
-import { WorkflowNode, WorkflowEdge } from '../types';
+import type { WorkflowNode, WorkflowEdge } from '../types';
 import { createEdgeId } from '../utils/id';
 
 export interface ParsedGraph {
@@ -26,7 +26,6 @@ export const parseMermaid = (code: string): ParsedGraph => {
     if (line.includes('-->')) {
       const parts = line.split('-->');
       if (parts.length >= 2) {
-        let sourceRaw = parts[0].trim();
         // Handle multi-segment edges A --> B --> C
         // For MVP, we'll iterate pairs. A-->B, B-->C is tricky if on one line without splitting logic properly.
         // Assuming simplier parser for now: one edge per line or chained simple edges.
@@ -60,10 +59,10 @@ export const parseMermaid = (code: string): ParsedGraph => {
           }
 
           // Add nodes if not exist (merge/update if label provided)
-          if (!nodes.has(sourceNode.id) || (sourceNode.label !== sourceNode.id && nodes.get(sourceNode.id)?.data.label === sourceNode.id)) {
+          if (!nodes.has(sourceNode.id) || (sourceNode.data.label !== sourceNode.id && nodes.get(sourceNode.id)?.data.label === sourceNode.id)) {
              nodes.set(sourceNode.id, { ...sourceNode, position: { x: 0, y: 0 } });
           }
-          if (!nodes.has(targetNode.id) || (targetNode.label !== targetNode.id && nodes.get(targetNode.id)?.data.label === targetNode.id)) {
+          if (!nodes.has(targetNode.id) || (targetNode.data.label !== targetNode.id && nodes.get(targetNode.id)?.data.label === targetNode.id)) {
              nodes.set(targetNode.id, { ...targetNode, position: { x: 0, y: 0 } });
           }
 
@@ -81,7 +80,7 @@ export const parseMermaid = (code: string): ParsedGraph => {
     // Single Node definition: A[Label] or A
     const node = parseNodeString(line);
     if (node.id) {
-       if (!nodes.has(node.id) || (node.label !== node.id)) {
+       if (!nodes.has(node.id) || (node.data.label !== node.id)) {
            nodes.set(node.id, { ...node, position: { x: 0, y: 0 } });
        }
     }

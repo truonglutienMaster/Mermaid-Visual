@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { applyAutoLayout } from './engine';
-import { WorkflowNode, WorkflowEdge } from '../types';
+import type { WorkflowNode, WorkflowEdge } from '../types';
 
 describe('Layout Engine', () => {
   it('should assign positions to nodes', () => {

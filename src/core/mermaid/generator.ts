@@ -1,4 +1,4 @@
-import { WorkflowNode, WorkflowEdge } from '../types';
+import type { WorkflowNode, WorkflowEdge } from '../types';
 
 export const generateMermaid = (nodes: WorkflowNode[], edges: WorkflowEdge[], direction = 'TD'): string => {
   const lines: string[] = [`graph ${direction}`];
